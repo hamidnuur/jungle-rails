@@ -18,10 +18,12 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]
   end
-  # get '/signup' => 'users#new'
-  # post '/users' => 'users#create'
+
   resources :users, only: [:new, :create]
 
+  get 'about' => 'about#show'
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
